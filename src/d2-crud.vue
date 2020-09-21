@@ -555,7 +555,7 @@
                 v-bind="$d2CrudSize ? Object.assign({ size: $d2CrudSize}, item) : item"
                 @click="$emit(item.emit, {index: scope.$index, row: scope.row})"
               >
-                {{item.text}}
+                {{typeof item.text  === 'function' ? item.text($data.d2CrudData[scope.$index]) : item.text}}
               </el-button>
             </template>
           </template>
